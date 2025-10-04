@@ -37,7 +37,7 @@ const Signup = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-parchment dark:bg-dark-bg transition-colors">
       <div className="p-10 bg-white dark:bg-dark-card rounded-2xl shadow-xl w-full max-w-md border border-gray-200 dark:border-gray-700">
-        <h1 className="text-4xl text-center font-heading text-coffee dark:text-dark-text">Join ExpenseGrid</h1>
+        <h1 className="text-4xl text-center font-heading text-coffee dark:text-dark-text">Join ExpenseTracker</h1>
         <h2 className="text-xl text-center mt-2 mb-8 font-body text-gray-600 dark:text-dark-subtext">Create a New Account</h2>
         
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
