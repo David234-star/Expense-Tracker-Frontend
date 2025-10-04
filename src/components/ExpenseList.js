@@ -16,7 +16,7 @@ const ExpenseList = ({ expenses, fetchExpenses, setExpenseToEdit }) => {
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-dotted border-coffee">
-      <h2 className="text-3xl font-heading text-coffee mb-6">Transaction Log</h2>
+      <h2 className="text-3xl font-heading text-coffee mb-6">Expense List</h2>
       <div className="overflow-auto max-h-[30rem]">
         <table className="w-full text-left">
           <thead>

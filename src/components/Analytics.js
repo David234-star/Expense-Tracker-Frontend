@@ -102,7 +102,7 @@ const Analytics = ({ expenses }) => {
 
   return (
     <div className="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-colors">
-      <h2 className="text-3xl font-heading text-coffee dark:text-dark-text mb-6 text-center">Your Spending Analytics</h2>
+      <h2 className="text-3xl font-heading text-coffee dark:text-dark-text mb-6 text-center">Expense Analytics</h2>
       
       {expenses.length === 0 ? (
         <div className="text-center text-gray-500 dark:text-dark-subtext py-16">
