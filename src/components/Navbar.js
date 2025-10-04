@@ -40,7 +40,7 @@ const Navbar = ({ setAuth }) => {
   return (
     <nav className="bg-parchment dark:bg-dark-card shadow-md transition-colors">
       <div className="container mx-auto flex justify-between items-center p-4">
-        <h1 className="text-4xl font-heading text-coffee dark:text-dark-text">ExpenseBook</h1>
+        <h1 className="text-4xl font-heading text-coffee dark:text-dark-text">ExpenseTracker</h1>
         <div className="flex items-center space-x-4">
           <button onClick={handleExport} className="...">Export CSV</button>
           <button onClick={handleLogout} className="...">Logout</button>
