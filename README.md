@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Expense Tracker UI (React + Vite)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend for the Expense Tracker web application. It's a modern, responsive, and user-friendly interface built with React and Vite, designed to provide a seamless experience for managing personal finances.
 
-## Available Scripts
+_(Optional: Add a screenshot of your application here)_
+`![App Screenshot](./app-screenshot.png)`
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Interactive Dashboard**: A clean and intuitive dashboard to view, add, edit, and delete expenses.
+- **Data Visualization**: Beautiful and responsive charts (Bar and Doughnut) powered by Chart.js to help users visualize their spending habits by month and category.
+- **Dark & Light Mode**: A theme toggler for user comfort, with the selected preference saved in local storage. The UI is fully themed for both modes.
+- **Responsive Design**: The entire application is built with Tailwind CSS to be fully responsive, looking great on desktops, tablets, and mobile devices.
+- **Client-Side Routing**: Uses React Router for fast and smooth navigation between login, signup, and dashboard pages.
+- **Efficient API Communication**: Uses Axios for all communication with the backend API, including managing JWT tokens for authenticated requests.
+- **Fast Development Experience**: Built with Vite for near-instant server start and hot module replacement.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Core Library**: [React](https://reactjs.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Routing**: [React Router](https://reactrouter.com/)
+- **Charts**: [Chart.js](https://www.chartjs.org/) with `react-chartjs-2`
+- **API Client**: [Axios](https://axios-http.com/)
+- **Icons**: [Heroicons](https://heroicons.com/)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+Follow these instructions to get the frontend client running on your local machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v16 or higher)
+- `npm` or `yarn` package manager
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation & Setup
 
-### `npm run eject`
+1.  **Clone the repository:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```bash
+    git clone <your-repo-url>
+    cd <your-repo-name>/frontend
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2.  **Install dependencies:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```bash
+    npm install
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3.  **Set up your environment variables:**
+    Create a file named `.env` in the `frontend` directory. This file will tell your frontend application where the backend API is located.
 
-## Learn More
+    ```dotenv
+    # .env
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    # The URL of your running FastAPI backend server
+    VITE_API_URL=http://127.0.0.1:8000
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    **Note**: The `VITE_` prefix is required by Vite to expose the variable to the client-side code.
 
-### Code Splitting
+### Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Make sure your backend server is running first. Then, in the `frontend` directory, run the development server:
 
-### Analyzing the Bundle Size
+```bash
+npm run dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application will now be available at `http://localhost:5173` (or another port if 5173 is busy).
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Project Structure
 
-### Advanced Configuration
+The project is organized into logical folders for maintainability:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+/src
+|-- /components    # Reusable React components (Dashboard, Navbar, Forms, etc.)
+|-- /context       # React Context providers (e.g., ThemeContext)
+|-- /services      # API communication layer (api.js with Axios)
+|-- App.jsx        # Main application component with routing logic
+|-- index.css      # Global styles and Tailwind CSS directives
+|-- main.jsx       # The entry point of the React application
+```
 
-### Deployment
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This application is optimized for deployment on **Vercel**.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1.  Push your code to a GitHub repository.
+2.  On Vercel, import the project from your repository.
+3.  Vercel will automatically detect it as a Vite project and configure the build settings.
+4.  Add the `VITE_API_URL` environment variable in the Vercel project settings, pointing it to your live backend URL (e.g., your Render service URL).
+5.  Deploy! Vercel will handle the rest.
