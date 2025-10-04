@@ -2,9 +2,6 @@
 
 This is the frontend for the Expense Tracker web application. It's a modern, responsive, and user-friendly interface built with React and Vite, designed to provide a seamless experience for managing personal finances.
 
-_(Optional: Add a screenshot of your application here)_
-`![App Screenshot](./app-screenshot.png)`
-
 ## Features
 
 - **Interactive Dashboard**: A clean and intuitive dashboard to view, add, edit, and delete expenses.
