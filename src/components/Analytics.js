@@ -93,7 +93,7 @@ const Analytics = ({ expenses }) => {
             const label = context.label || '';
             const value = context.raw || 0;
             const percentage = totalExpenses > 0 ? ((value / totalExpenses) * 100).toFixed(1) : 0;
-            return `${label}: $${value.toFixed(2)} (${percentage}%)`;
+            return `${label}: ₹${value.toFixed(2)} (${percentage}%)`;
           }
         }
       }

@@ -30,9 +30,9 @@ const ExpenseList = ({ expenses, fetchExpenses, setExpenseToEdit }) => {
           </thead>
           <tbody>
             {expenses.map((expense, index) => (
-              <tr key={expense.id} className={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-stone-50' : 'bg-white'}`}>
+              <tr key={expense.id} className={`border-b border-gray-200 ₹{index % 2 === 0 ? 'bg-stone-50' : 'bg-white'}`}>
                 <td className="p-3">{expense.title}</td>
-                <td className="p-3">${expense.amount.toFixed(2)}</td>
+                <td className="p-3">₹{expense.amount.toFixed(2)}</td>
                 <td className="p-3">{expense.category}</td>
                 <td className="p-3">{expense.date}</td>
                 <td className="p-3 text-right space-x-3">
