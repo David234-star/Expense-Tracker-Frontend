@@ -38,8 +38,8 @@ Follow these instructions to get the frontend client running on your local machi
 1.  **Clone the repository:**
 
     ```bash
-    git clone <your-repo-url>
-    cd <your-repo-name>/frontend
+    git clone https://github.com/David234-star/Expense-Tracker-Frontend.git
+    cd Expense-Tracker-Frontend/frontend
     ```
 
 2.  **Install dependencies:**
