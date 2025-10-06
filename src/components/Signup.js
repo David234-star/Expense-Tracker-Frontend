@@ -1,4 +1,3 @@
-// src/components/Signup.js
 import React, { useState } from 'react';
 import api from '../services/api';
 import { Link, useNavigate } from 'react-router-dom';
@@ -68,7 +67,7 @@ const Signup = () => {
             className="w-full p-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-terracotta text-coffee dark:text-dark-text"
             required
           />
-          <button type="submit" className="w-full py-3 bg-terracotta text-white font-bold text-lg rounded-lg hover:bg-opacity-90 transition-all shadow-md">
+          <button type="submit" className="w-full py-3 bg-terracotta text-blue font-bold text-lg rounded-lg hover:bg-opacity-90 transition-all shadow-md">
             Create Account
           </button>
         </form>

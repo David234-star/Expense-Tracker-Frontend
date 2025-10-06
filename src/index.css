@@ -1,4 +1,3 @@
-/* frontend/src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap');
 
 @tailwind base;
@@ -6,25 +5,27 @@
 @tailwind utilities;
 
 body {
-  @apply bg-parchment text-coffee font-body;
-  /* A subtle paper texture background */
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}s
+  /* This will now work because Tailwind knows about 'light-bg', etc. */
+  @apply bg-light-bg text-light-text font-body;
+}
 
-/* Custom scrollbar for the retro vibe */
+/* Custom scrollbar for the retro vibe - This can be updated for the new theme */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0c1d;
-  /* dark-blue */
+  background: #f1f1f1;
+  /* Light mode track */
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #2d3748;
+  /* Dark mode track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #f0f;
-  /* neon-pink */
+  background-color: #3b82f6;
+  /* primary-blue */
   border-radius: 20px;
-  border: 3px solid #0d0c1d;
-  /* dark-blue */
 }

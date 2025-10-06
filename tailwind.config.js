@@ -1,24 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class', // <-- ADD THIS LINE
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
+        // Light Mode (Our "crafty" theme)
         'parchment': '#fefbf1',
         'coffee': '#4a2c2a',
-        'terracotta': '#e57373',
-        'ocean-blue': '#4fc3f7',
-        'forest-green': '#81c784',
-        'sunny-yellow': '#fff176',
-        // Dark Mode Colors
-        'dark-bg': '#1a202c',
-        'dark-card': '#2d3748',
-        'dark-text': '#edf2f7',
-        'dark-subtext': '#a0aec0',
+        'light-bg': '#fefbf1',
+        'light-card': '#ffffff',
+        'light-text': '#4a2c2a',
+        'light-subtext': '#7d5a58',
+        'primary-blue': '#3b82f6', // A nice blue for buttons
+        
+        // Dark Mode (From screenshots)
+        'dark-bg': '#111827',
+        'dark-card': '#1f2937',
+        'dark-text': '#f9fafb',
+        'dark-subtext': '#9ca3af',
       },
       fontFamily: {
         'heading': ['"Fredoka One"', 'cursive'],

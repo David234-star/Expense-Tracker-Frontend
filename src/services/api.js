@@ -1,12 +1,10 @@
-// src/services/api.js
 import axios from 'axios';
 
-// Create an axios instance with the backend URL from environment variables
 const apiClient = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
-// Add a request interceptor to include the JWT token in every request
+// Adding a request interceptor to include the JWT token in every request
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -21,7 +19,7 @@ apiClient.interceptors.request.use(
   }
 );
 
-// Define API calls
+// Defined API calls
 const api = {
   // --- Auth ---
   signup: (userData) => apiClient.post('/signup', userData),
