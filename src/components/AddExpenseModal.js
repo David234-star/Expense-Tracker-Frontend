@@ -6,6 +6,7 @@ const AddExpenseModal = ({ isOpen, onClose, fetchExpenses, expenseToEdit }) => {
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  const [isRecurring, setIsRecurring] = useState(false);
 
   useEffect(() => {
     if (expenseToEdit) {
@@ -13,15 +14,16 @@ const AddExpenseModal = ({ isOpen, onClose, fetchExpenses, expenseToEdit }) => {
       setAmount(expenseToEdit.amount);
       setCategory(expenseToEdit.category);
       setDate(expenseToEdit.date);
+      setIsRecurring(expenseToEdit.is_recurring || false);
     } else {
       // Reset form when adding new
-      setTitle(''); setAmount(''); setCategory(''); setDate(new Date().toISOString().slice(0, 10));
+      setTitle(''); setAmount(''); setCategory(''); setDate(new Date().toISOString().slice(0, 10)); setIsRecurring(false);
     }
   }, [expenseToEdit, isOpen]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const expenseData = { title, amount: parseFloat(amount), category, date };
+    const expenseData = { title, amount: parseFloat(amount), category, date, is_recurring: isRecurring };
     try {
       if (expenseToEdit) {
         await api.updateExpense(expenseToEdit.id, expenseData);
@@ -46,6 +48,16 @@ const AddExpenseModal = ({ isOpen, onClose, fetchExpenses, expenseToEdit }) => {
           <input type="number" placeholder="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} className="w-full p-2 bg-gray-100 dark:bg-gray-700 rounded" required />
           <input type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} className="w-full p-2 bg-gray-100 dark:bg-gray-700 rounded" required />
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full p-2 bg-gray-100 dark:bg-gray-700 rounded" required />
+          <div className="flex items-center space-x-3">
+            <input 
+              type="checkbox" 
+              id="recurring" 
+              checked={isRecurring} 
+              onChange={(e) => setIsRecurring(e.target.checked)}
+              className="h-4 w-4 rounded text-primary-blue focus:ring-primary-blue"
+            />
+            <label htmlFor="recurring" className="font-medium">Recurring Expense</label>
+          </div>
           <div className="flex justify-end space-x-4 pt-4">
             <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-200 dark:bg-gray-600 rounded-lg">Cancel</button>
             <button type="submit" className="px-4 py-2 bg-primary-blue text-white rounded-lg">{expenseToEdit ? 'Save Changes' : 'Add Expense'}</button>

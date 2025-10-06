@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import { PlusIcon, SunIcon, MoonIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/solid';
+import { DocumentArrowDownIcon } from '@heroicons/react/24/solid';
 
 import api from '../services/api';
 import ThemeContext from '../context/ThemeContext';
@@ -43,6 +44,21 @@ const MainLayout = ({ setAuth }) => {
     localStorage.removeItem('token');
     setAuth(false);
   };
+  
+  const handleExport = async () => {
+    try {
+      const response = await api.exportToCSV();
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'expenses.csv');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      console.error("Failed to export CSV", error);
+    }
+  };    
 
   const navLinkClass = ({ isActive }) =>
     `px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
@@ -50,6 +66,7 @@ const MainLayout = ({ setAuth }) => {
         ? 'bg-primary-blue text-white'
         : 'text-light-subtext dark:text-dark-subtext hover:bg-gray-200 dark:hover:bg-gray-700'
     }`;
+    
   
 //   // Finds current page title
 //   const getPageTitle = () => {
@@ -79,6 +96,9 @@ const MainLayout = ({ setAuth }) => {
                 <button onClick={handleOpenAddModal} className="flex items-center space-x-2 bg-primary-blue text-white px-4 py-2 rounded-lg font-bold hover:bg-opacity-90">
                     <PlusIcon className="h-5 w-5" />
                     <span>Add Expense</span>
+                </button>
+                <button onClick={handleExport} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" title="Export to CSV">
+                    <DocumentArrowDownIcon className="h-6 w-6" />
                 </button>
             </div>
         </div>
