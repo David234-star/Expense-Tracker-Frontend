@@ -77,7 +77,7 @@ const AnalyticsView = ({ expenses }) => {
                         <p className="text-sm text-light-subtext dark:text-dark-subtext">{item.count} transactions</p>
                     </div>
                     <div className="text-right">
-                        <p className="font-bold">${item.amount.toFixed(2)}</p>
+                        <p className="font-bold">₹{item.amount.toFixed(2)}</p>
                         <p className="text-sm text-light-subtext dark:text-dark-subtext">
                             {((item.amount / totalExpenses) * 100).toFixed(1)}%
                         </p>
