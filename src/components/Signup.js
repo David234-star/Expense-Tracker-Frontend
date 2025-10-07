@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import api from '../services/api';
+import ThemeContext from '../context/ThemeContext';
+import { SunIcon, MoonIcon} from '@heroicons/react/24/solid';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -9,6 +11,7 @@ const Signup = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -35,6 +38,9 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-parchment dark:bg-dark-bg transition-colors">
+      <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                          {theme === 'light' ? <MoonIcon className="h-6 w-6" /> : <SunIcon className="h-6 w-6" />}
+      </button>
       <div className="p-10 bg-white dark:bg-dark-card rounded-2xl shadow-xl w-full max-w-md border border-gray-200 dark:border-gray-700">
         <h1 className="text-4xl text-center font-heading text-coffee dark:text-dark-text">Join ExpenseTracker</h1>
         <h2 className="text-xl text-center mt-2 mb-8 font-body text-gray-600 dark:text-dark-subtext">Create a New Account</h2>
@@ -67,7 +73,7 @@ const Signup = () => {
             className="w-full p-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-terracotta text-coffee dark:text-dark-text"
             required
           />
-          <button type="submit" className="w-full py-3 bg-terracotta text-blue font-bold text-lg rounded-lg hover:bg-opacity-90 transition-all shadow-md">
+          <button type="submit" className="w-full py-3 bg-primary-blue text-white font-bold text-lg rounded-lg hover:bg-opacity-90 transition-all shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed">
             Create Account
           </button>
         </form>

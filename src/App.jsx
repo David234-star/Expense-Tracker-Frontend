@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './components/Login';
 import Signup from './components/Signup';
 import MainLayout from './views/MainLayout'; // Import the new main layout
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword'; 
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -17,6 +19,14 @@ function App() {
         <Routes>
           <Route path="/login" element={!isAuthenticated ? <Login setAuth={setAuth} /> : <Navigate to="/" />} />
           <Route path="/signup" element={!isAuthenticated ? <Signup /> : <Navigate to="/" />} />
+           <Route 
+            path="/forgot-password" 
+            element={!isAuthenticated ? <ForgotPassword /> : <Navigate to="/" />} 
+          />
+          <Route 
+            path="/reset-password" 
+            element={!isAuthenticated ? <ResetPassword /> : <Navigate to="/" />} 
+          />
           <Route path="/*" element={isAuthenticated ? <MainLayout setAuth={setAuth} /> : <Navigate to="/login" />} />
         </Routes>
       </div>

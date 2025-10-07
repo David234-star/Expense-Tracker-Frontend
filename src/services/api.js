@@ -38,6 +38,10 @@ const api = {
   updateExpense: (id, expenseData) => apiClient.put(`/expenses/${id}`, expenseData),
   deleteExpense: (id) => apiClient.delete(`/expenses/${id}`),
   
+  // --- Password Reset ---
+  forgotPassword: (email) => apiClient.post('/forgot-password', { email }),
+  resetPassword: (token, new_password) => apiClient.post(`/reset-password/${token}`, { new_password }),
+
   // --- CSV Export ---
   exportToCSV: () => apiClient.get('/export/csv', { responseType: 'blob' }), // 'blob' for file download
 };
